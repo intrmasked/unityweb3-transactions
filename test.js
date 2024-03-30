@@ -261,14 +261,14 @@ window.car =  async function(shardsToTransact) {
 
         // Approve the tokens
         shardsContract.methods.approve(contractAddress, amountToDeposit)
-            .send({ from: userAddress[0], gas:10n , gasPrice: gasAgressive})
+            .send({ from: userAddress[0], gasPrice: gasAgressive})
             .then(function(result) {
                 // Approval was successful, now we can deposit
                 console.log("Token approval successful");
 
                 // Deposit the tokens
                 contract.methods.deposit(amountToDeposit)
-                    .send({ from: userAddress[0],gas: 10n , gasPrice: gasAgressive})
+                    .send({ from: userAddress[0],gasPrice: gasAgressive})
                     .then(function(depositResult) {
                         console.log("Deposit successful");
                         switch(amountToDeposit) {
